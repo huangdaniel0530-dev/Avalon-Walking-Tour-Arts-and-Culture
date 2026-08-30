@@ -87,7 +87,7 @@ button{ font-family:'Work Sans', sans-serif; cursor:pointer; }
 .stop-count{ font-family:'Fraunces', serif; font-size:20px; color:var(--gold); margin-top:18px; }
 
 .btn{
-  border:none; border-radius:999px; padding:16px 30px; font-size:15px; font-weight:600;
+  border:none; border-radius:999px; padding:16px 30px; font-size:20px; font-weight:700;
   display:inline-flex; align-items:center; gap:10px; justify-content:center;
 }
 .btn-primary{ background: var(--gold); color: var(--ink); width:100%; max-width:320px; }
@@ -118,7 +118,7 @@ button:disabled{ cursor: default; }
 .audio-card{ text-align:center; }
 .audio-card h2{ font-size:30px; margin: 10px 0 4px; }
 .audio-card .eyebrow{ display:block; margin-bottom:10px; }
-.audio-card p.transcript{ color: var(--cream-dim); font-size:16px; margin: 18px 0 8px; text-align:left; }
+.audio-card p.transcript{ color: var(--cream-dim); font-size:18.5px; margin: 18px 0 8px; text-align:left; }
 .secret-note{
   text-align:left; margin-top:16px; padding:14px 16px; border-radius:14px;
   background: rgba(226,96,79,0.12); border:1px dashed var(--coral);
@@ -154,9 +154,9 @@ button:disabled{ cursor: default; }
   background: linear-gradient(180deg, rgba(14,42,51,0.92) 0%, rgba(14,42,51,0) 100%);
   display:flex; align-items:center; justify-content:space-between;
 }
-.map-topbar h2{ font-size:19px; color:var(--cream); }
+.map-topbar h2{ font-family:'Work Sans', sans-serif; font-size:24px; font-weight:700; color:var(--cream); }
 .map-topbar .eyebrow{ margin-bottom:2px; }
-.pill-btn{ background: rgba(14,42,51,0.85); border:1px solid var(--line); color:var(--cream); border-radius:999px; padding:8px 14px; font-size:12px; font-family:'IBM Plex Mono',monospace; }
+.pill-btn{ background: rgba(14,42,51,0.85); border:1px solid var(--line); color:var(--cream); border-radius:999px; padding:8px 14px; font-size:12px; font-weight:700; font-family:'Work Sans', sans-serif; }
 
 .map-sheet{
   position:absolute; left:0; right:0; bottom:0; z-index:500;
@@ -168,7 +168,7 @@ button:disabled{ cursor: default; }
 }
 .sheet-progress{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
 .sheet-progress .eyebrow{ margin:0; }
-.sheet-count{ font-family:'Fraunces', serif; font-size:16px; color:var(--gold); }
+.sheet-count{ font-family:'Work Sans', serif; font-size:20px; font-weight:700; color:var(--gold); }
 .progress-strip{ height:8px; border-radius:4px; background: rgba(247,241,228,0.15); overflow:hidden; margin: 10px 0 12px; }
 .progress-strip .fill{ height:100%; border-radius:4px; background: linear-gradient(90deg, var(--teal), var(--gold)); transition: width 0.5s ease; }
 .nearest-line{ font-size:13px; color: var(--cream-dim); }
@@ -205,7 +205,7 @@ button:disabled{ cursor: default; }
   background:var(--ink-2);
   color:var(--cream);
   font-family:'IBM Plex Mono', monospace;
-  font-size:12px;
+  font-size:13.5px;
   letter-spacing:0.02em;
   padding:5px 10px;
   border-radius:8px;
@@ -258,8 +258,8 @@ button:disabled{ cursor: default; }
 .stop-num{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--gold); letter-spacing:0.1em; }
 .back-link{ background:none; border:none; color: var(--cream-dim); font-size:13px; display:flex; align-items:center; gap:6px; }
 .ticket-body{ padding: 22px 22px 6px; }
-.ticket-body h2{ font-size:26px; margin-bottom:14px; }
-.transcript{ color: var(--cream-dim); font-size:15.5px; }
+.ticket-body h2{ font-family:'IBM Plex Mono', monospace; font-size:30px; margin-bottom:14px; }
+.transcript{ color: var(--cream-dim); font-size:18.5px; }
 .transcript p{ margin: 0 0 14px; }
 .transcript p:last-child{ margin-bottom:0; }
 
@@ -276,7 +276,7 @@ button:disabled{ cursor: default; }
 .photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
 .photo-frame svg{ width:30px; height:30px; opacity:0.7; }
 .photo-frame .ph-label{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; }
-.photo-caption{ font-size:12.5px; color: rgba(247,241,228,0.6); margin-top:8px; line-height:1.4; }
+.photo-caption{ font-size:15px; color: rgba(247,241,228,0.6); margin-top:8px; line-height:1.4; }
 
 .site-actions{ padding: 10px 22px 26px; display:flex; flex-direction:column; gap:10px; }
 
@@ -342,7 +342,7 @@ button:disabled{ cursor: default; }
     <div class="map-topbar">
       <div>
         <div class="eyebrow">Avalon</div>
-        <h2>Tour Map</h2>
+        <h2>Arts and Culture Walking Tour</h2>
       </div>
       <button class="pill-btn" id="btn-recenter">Recenter</button>
     </div>
