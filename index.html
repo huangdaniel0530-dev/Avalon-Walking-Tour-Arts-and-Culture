@@ -192,7 +192,7 @@ button:disabled{ cursor: default; }
   height:44px;
   object-fit:contain;
   margin:0 auto;
-  filter:drop-shadow(0 3px 5px rgba(0,0,0,0.35));
+  filter:drop-shadow(0 3px 5px rgba(52, 52, 52, 0.75));
 }
 
 .site-pin .label{
@@ -1035,7 +1035,10 @@ function buildPinIcon(site, isSecret){
 
   function initMap(){
     if (map) return;
-    map = L.map('leaflet-map', { zoomControl:false, attributionControl:true }).setView([33.3427, -118.3247], 16);
+    map = L.map('leaflet-map', {
+     zoomControl:false,
+     attributionControl:true
+    });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; OpenStreetMap contributors'
@@ -1045,6 +1048,17 @@ function buildPinIcon(site, isSecret){
     SITES.forEach(function(site){ addMarker(site, false); });
 
     if (state.secretsUnlocked) addSecretMarkers();
+      var bounds = L.latLngBounds(
+    SITES.map(function(site){
+      return [site.lat, site.lng];
+    })
+  );
+
+  map.fitBounds(bounds, {
+    paddingTopLeft: [30, 80],
+    paddingBottomRight: [30, 280],
+    maxZoom: 16
+  });
   }
 
   function addSecretMarkers(){
