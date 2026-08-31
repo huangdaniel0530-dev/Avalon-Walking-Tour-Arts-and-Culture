@@ -6,7 +6,7 @@
 <title>Avalon &mdash; A Walking Tour</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Mono:wght@400;500;600&family=Roboto:wght@400;500;600;700;800&display=swap');
 
 :root{
   --ink: #0e2a33;
@@ -30,7 +30,7 @@ body{
   margin:0;
   background: var(--ink);
   color: var(--cream);
-  font-family:'Work Sans', sans-serif;
+  font-family:'Roboto', sans-serif;
   -webkit-font-smoothing:antialiased;
   overscroll-behavior:none;
 }
@@ -43,7 +43,7 @@ h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; margin:0; letter-spaci
   color: var(--gold);
 }
 p{ line-height:1.65; }
-button{ font-family:'Work Sans', sans-serif; cursor:pointer; }
+button{ font-family:'Roboto', sans-serif; cursor:pointer; }
 
 #app{
   max-width:520px;
@@ -154,9 +154,9 @@ button:disabled{ cursor: default; }
   background: linear-gradient(180deg, rgba(14,42,51,0.92) 0%, rgba(14,42,51,0) 100%);
   display:flex; align-items:center; justify-content:space-between;
 }
-.map-topbar h2{ font-family:'Work Sans', sans-serif; font-size:24px; font-weight:700; color:var(--cream); }
+.map-topbar h2{ font-family:'Roboto', sans-serif; font-size:24px; font-weight:800; color:var(--cream); }
 .map-topbar .eyebrow{ margin-bottom:2px; }
-.pill-btn{ background: rgba(14,42,51,0.85); border:1px solid var(--line); color:var(--cream); border-radius:999px; padding:8px 14px; font-size:12px; font-weight:700; font-family:'Work Sans', sans-serif; }
+.pill-btn{ background: rgba(14,42,51,0.85); border:1px solid var(--line); color:var(--cream); border-radius:999px; padding:8px 14px; font-size:12px; font-weight:800; font-family:'Roboto', sans-serif; }
 
 .map-sheet{
   position:absolute; left:0; right:0; bottom:0; z-index:500;
@@ -168,7 +168,7 @@ button:disabled{ cursor: default; }
 }
 .sheet-progress{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
 .sheet-progress .eyebrow{ margin:0; }
-.sheet-count{ font-family:'Work Sans', serif; font-size:20px; font-weight:700; color:var(--gold); }
+.sheet-count{ font-family:'Roboto', serif; font-size:20px; font-weight:800; color:var(--gold); }
 .progress-strip{ height:8px; border-radius:4px; background: rgba(247,241,228,0.15); overflow:hidden; margin: 10px 0 12px; }
 .progress-strip .fill{ height:100%; border-radius:4px; background: linear-gradient(90deg, var(--teal), var(--gold)); transition: width 0.5s ease; }
 .nearest-line{ font-size:13px; color: var(--cream-dim); }
@@ -330,7 +330,7 @@ button:disabled{ cursor: default; }
         <div class="photo-frame">
           <img src="images/intro.jpg" alt="Santa Catalina's travel stickers designed by Otis Shepard." aspect="1:1">
         </div>
-        <div class="photo-caption">this is a test caption.</div>
+        <div class="photo-caption">Santa Catalina's travel stickers designed by Otis Shepard</div>
       </div>
     </div>
     <button class="btn btn-ghost btn-block" id="btn-to-map">Continue to Map &rarr;</button>
@@ -431,10 +431,9 @@ button:disabled{ cursor: default; }
         "Another highlight is the community artwork on the right wing—it’s actually a garage door used to move large collection items into the museum. But the museum brings in much more than objects. Through its exhibitions, workshops, and community events, it brings Catalina’s art, history, and people together."
       ],
       photos:[
-        {src:"images/museum-1.jpg", caption:"Front view of the museum.", aspect:2.7},
-        {src:"images/museum-2.jpg", caption:"Community artwork on the right wing.", aspect:0.79},
-        {src:"images/museum-3.jpg", caption:"Rotating exhibits highlight rare island artifacts.", aspect:1.23},
-        {src:"images/museum-4.jpg", caption:"The museum's architecture echoes the Casino's iconic design.", aspect:1.33}
+        {src:"images/museum-1.jpg", caption:"Catalina Museum for Art & History", aspect:2.7},
+        {src:"images/museum-2.jpg", caption:"Community artwork on the right wing", aspect:0.79},
+        {src:"images/museum-3.jpg", caption:"<em>Catalina Island Museum</em>, 2015, by Brian Stewart", aspect:1.25}
       ]
     },
     {
@@ -450,10 +449,10 @@ button:disabled{ cursor: default; }
         "Nowadays, most of the tiles we see in Avalon are replicas. Here’s what makes these tiles especially exciting: the piece in front of us is an original from  the old Bird Park, nearly a century old. Now turn around and look at the plaza’s ticket booth. Those tiles are reproductions. Compare the two. What differences can you spot?  The colors of these tiles have barely faded—and neither have the artistic practices on this island!"
       ],
       photos:[
-        {src:"images/birdpark-1.jpg", caption:"One of the surviving tile fountains near the old aviary site.", aspect:1.33},
-        {src:"images/birdpark-2.jpg", caption:"The Island Tour Plaza now occupies much of Bird Park's footprint.", aspect:1.55},
-        {src:"images/birdpark-3.jpg", caption:"Wrigley's exotic aviary once stood on this very spot.", aspect:0.65},
-        {src:"images/birdpark-4.jpg", caption:"A tile fountain tucked between the mini golf gardens.", aspect:0.74}
+        {src:"images/birdpark-1.jpg", caption:"Bird Park Tiles", aspect:1.33},
+        {src:"images/birdpark-2.jpg", caption:"Vintage postcard of Catalina's large bird cage, Museum Collection ", aspect:1.55},
+        {src:"images/birdpark-3.jpg", caption:"Roger \"Bud\" Upton's original design of the parakeets tile", aspect:0.65},
+        {src:"images/birdpark-4.jpg", caption:"Historic parakeets tiles on display at the museum", aspect:0.74}
       ]
     },
     {
@@ -468,7 +467,7 @@ button:disabled{ cursor: default; }
         "If we look a little closer, we can even recognize some local residents in the painting. For example, on the roof of the El Galleon restaurant, you’ll see a couple dressed in red —the woman depicted was Avalon’s Mayor and her husband when the mural was painted! By including so many real-life details, this mural not only captures the energy of Avalon’s cityscape, but it also shows how the spirit of Catalina lives through its local community. "
       ],
       photos:[
-        {src:"images/spirit-1.jpg", caption:"testing the caption.", aspect:3.73},
+        {src:"images/spirit-1.jpg", caption:"Original studio draft of the mural, Museum Collection", aspect:3.73},
       ]
     },
     {
@@ -483,9 +482,9 @@ button:disabled{ cursor: default; }
         "As we walk from Ben’s statue to our next stop, see if you can find your own spot in Avalon that you’d want to paint!"
       ],
       photos:[
-          {src:"images/ben-1.jpg", caption:"testing the caption.", aspect:0.75},
-          {src:"images/ben-2.jpg", caption:"testing the caption.", aspect:1.33},
-          {src:"images/ben-3.jpg", caption:"testing the caption.", aspect:1.33}
+          {src:"images/ben-1.jpg", caption:"Old Ben's statue by Stanley Rosin", aspect:0.75},
+          {src:"images/ben-2.jpg", caption:"<em>Busy Bay, Pleasure Pier</em>, by Gerald J. Fritzler", aspect:1.33},
+          {src:"images/ben-3.jpg", caption:"<em>Things are Looking Up</em>, by Mary DeLoyht", aspect:1.33}
       ]
     },
     {
@@ -500,9 +499,9 @@ button:disabled{ cursor: default; }
         "Before we move on, let’s look around and see if we can spot a few more designs by the Shepards. The Serpentine Wall, the road signs, and even the tiny signboards hidden in the bushes—all of these details remind us that art is more than just decoration. It can shape our surroundings and influence the way we experience everyday life."
       ],
       photos:[
-        {src:"images/serpentine-1.jpg", caption:"testing the caption.", aspect:0.75},
-        {src:"images/serpentine-2.jpg", caption:"testing the caption.", aspect:0.75},
-        {src:"images/serpentine-3.jpg", caption:"testing the caption.", aspect:1}
+        {src:"images/serpentine-1.jpg", caption:"Serpentine Wall", aspect:0.75},
+        {src:"images/serpentine-2.jpg", caption:"<em>Serpentine Wall</em>, by Buck Lopez, Museum Collection", aspect:0.75},
+        {src:"images/serpentine-3.jpg", caption:"Catalina's custom font, designed by the Shepards", aspect:1}
       ]
     },
     {
@@ -517,9 +516,9 @@ button:disabled{ cursor: default; }
         "As we take one last look at the Wrigley Fountain, we can see that it is much more than a beautiful landmark. It is a living canvas that carries the island’s artistic heritage from one generation to the next. Even today, it continues to inspire local artists like Robin and visitors like us."
       ],
       photos:[
-        {src:"images/fountain-1.jpg", caption:"Hand-glazed tile covers every surface of the fountain.", aspect:1},
-        {src:"images/fountain-2.jpg", caption:"A quiet gathering spot along Crescent Avenue.", aspect:0.79},
-        {src:"images/fountain-3.jpg", caption:"Locals still call this street Front Street.", aspect:1.33}
+        {src:"images/fountain-1.jpg", caption:"Wrigley Fountain", aspect:1},
+        {src:"images/fountain-2.jpg", caption:"Postcard of the Wrigley Fountain in the 1970s, Museum Collection", aspect:0.79},
+        {src:"images/fountain-3.jpg", caption:"Tentative Artwork by Robin Cassidy", aspect:1.33}
       ]
     },
     {
@@ -534,10 +533,10 @@ button:disabled{ cursor: default; }
         "As we make our way to the next stop, try to look for more colors, patterns, and architectural details that make Avalon so unique. Every detail can be a piece of art—and together, they create a bigger work of art: the island itself."
       ],
       photos:[
-        {src:"images/via-casino-1.jpg", caption:"The archway marks the start of Via Casino Way.", aspect:1.30},
-        {src:"images/via-casino-2.jpg", caption:"A favorite framing shot of the Casino beyond.", aspect:0.76},
-        {src:"images/via-casino-3.jpg", caption:"Orchestra music once drifted from beyond this arch.", aspect:0.88},
-        {src:"images/via-casino-4.jpg", caption:"The archway's tile details echo the Shepards' other work.", aspect:1.26}
+        {src:"images/via-casino-1.jpg", caption:"Sombrero Fountain and El Encanto (left to right)", aspect:1.30},
+        {src:"images/via-casino-2.jpg", caption:"Via Casion Archway and the Chimes Tower on the hill", aspect:0.76},
+        {src:"images/via-casino-3.jpg", caption:"Catalina travel brochure by Otis Shepard", aspect:0.90},
+        {src:"images/via-casino-4.jpg", caption:"Catalina travel poster by Otis Shepard", aspect:1.26}
       ]
     },
     {
@@ -552,11 +551,11 @@ button:disabled{ cursor: default; }
         "<em>Leaping Tuna</em>, however, is not just about fishing. For over a century, Catalina’s emerald-green waters have inspired artists just as much as anglers. Fish and other marine creatures appear throughout the island’s visual culture, from vintage postcards and decorative tiles to murals and travel brochures. The same sea that attracted fishermen has also inspired generations of artists to celebrate the island’s unique marine life."
       ],
       photos:[
-        {src:"images/tuna-1.jpg", caption:"testing the caption.", aspect:0.75},
-        {src:"images/tuna-2.jpg", caption:"Founding members shaped modern sportfishing rules from here.", aspect:0.63},
-        {src:"images/tuna-3.jpg", caption:"Member plaques line the clubhouse walls.", aspect:1.55},
-        {src:"images/tuna-4.jpg", caption:"The Tuna Club's original clubhouse, circa 1900.", aspect:0.57},
-        {src:"images/tuna-5.jpg", caption:"The Tuna Club's original clubhouse, circa 1900.", aspect:1}
+        {src:"images/tuna-1.jpg", caption:"<em>Leaping Tuna</em>", aspect:0.75},
+        {src:"images/tuna-2.jpg", caption:"Vintage postcard of the swordfish catch in 1917, Museum Collection", aspect:0.63},
+        {src:"images/tuna-3.jpg", caption:"Postcard of the Submarine Gardens, Museum Collection", aspect:1.55},
+        {src:"images/tuna-4.jpg", caption:"Travel brochure featuring flying fish, 1950s, Museum Collection", aspect:0.57},
+        {src:"images/tuna-5.jpg", caption:"Marlin tile replica", aspect:1}
       ]
     },
     {
@@ -571,10 +570,10 @@ button:disabled{ cursor: default; }
         "Before we continue, see how many details you can spot that connect to places and stories from today’s tour. You would be surprised by how many artistic threads tie Avalon together!"
       ],
       photos:[
-        {src:"images/ep-1.jpg", caption:"testing the caption.", aspect:1.57},
-        {src:"images/ep-2.jpg", caption:"A classic evening view back toward the Casino.", aspect:1.57},
-        {src:"images/ep-3.jpg", caption:"A favorite spot for sunset walks.", aspect:1.57},
-        {src:"images/ep-4.jpg", caption:"The path continues on toward Descanso Beach.", aspect:1.57}
+        {src:"images/ep-1.jpg", caption:"<em>The Casino at Night</em>", aspect:1.59},
+        {src:"images/ep-2.jpg", caption:"<em>Airport and Orilla Jardin</em>", aspect:1.59},
+        {src:"images/ep-3.jpg", caption:"<em>Seal Rocks</em>", aspect:1.55},
+        {src:"images/ep-4.jpg", caption:"<em>Watching the Flying Fish by Night from Str. Betty O</em>", aspect:1.55}
       ]
     },
     {
@@ -590,9 +589,9 @@ button:disabled{ cursor: default; }
         "Although much knowledge about Pimugnan’s artistic traditions were disrupted or lost after European contact, those traditions remain an important part of the island’s history.  They’ve become the soil that nurtures this artwork, where modern art interacts with historic scenes. This bay may not have seven moons, but the arts and culture have definitely made it magical."
       ],
       photos:[
-        {src:"images/bay-1.jpg", caption:"testing the caption.", aspect:1.89},
-        {src:"images/bay-2.jpg", caption:"A tribute to the island's earliest residents.", aspect:1.45},
-        {src:"images/bay-3.jpg", caption:"Seven hills ring the harbor beyond this point.", aspect:0.76}
+        {src:"images/bay-1.jpg", caption:"<em>Bay of Seven Moons</em>", aspect:1.89},
+        {src:"images/bay-2.jpg", caption:"Pimugnan sculptors carving soapstone.", aspect:1.45},
+        {src:"images/bay-3.jpg", caption:"Beads and pendants on display, museum collection", aspect:0.76}
       ]
     },
     {
@@ -607,10 +606,10 @@ button:disabled{ cursor: default; }
         "And the art doesn’t stop at the entrance. Inside, the Casino has long been a major venue for theater, music, dance, and film. The Avalon Theatre brought the magic of cinema to the island, while the ballroom upstairs welcomed performances and dances for thousands of visitors. From its architecture and murals to its performances, the Casino reveals yet another side of Catalina's artistic heritage."
       ],
       photos:[
-        {src:"images/casino-1.jpg", caption:"The Casino's circular silhouette anchors Avalon Bay.", aspect:0.76},
-        {src:"images/casino-2.jpg", caption:"Art Deco murals wrap the building's entrance loggia.", aspect:0.75},
-        {src:"images/casino-3.jpg", caption:"The ballroom seats thousands beneath its dome.", aspect:1.31},
-        {src:"images/casino-4.jpg", caption:"Art Deco details wrap the entire building.", aspect:1.31}
+        {src:"images/casino-1.jpg", caption:"Catalina Casino", aspect:0.76},
+        {src:"images/casino-2.jpg", caption:"Mermaid Mural by John Gabriel Beckman, restored by the Richard Keit Studio", aspect:0.75},
+        {src:"images/casino-3.jpg", caption:"On the museum's second floor, the <em>Catalina Undersea Garden Mural</em> by Richard Keit Studio was inspired by Casino's murals", aspect:1.31},
+        {src:"images/casino-4.jpg", caption:"Original museum signage at the Casino", aspect:1.51}
       ]
     }
   ];
@@ -627,8 +626,8 @@ button:disabled{ cursor: default; }
         "You may have noticed this luxuriously decorated storefront as you walk along Front Street. But take a closer look at the colorful tilework—can you spot two tiles that stand out from the rest? Look for the two marlin tiles tucked into the decoration. These are rare historic tiles, unlike most of the other tiles you’ll find around Avalon. Like the <em>Leaping Tuna</em>, these marlin tiles also remind us of Catalina’s deep connection to the sea.",
       ],
       photos:[
-        {src:"images/marlin-1.jpg", caption:"The marlin's tile scales shimmer in blues and greens.", aspect:1.99},
-        {src:"images/marlin-2.jpg", caption:"Easy to miss if you're not watching your feet.", aspect:1}
+        {src:"images/marlin-1.jpg", caption:"The store front decorated with tiles restored by Robin Cassidy", aspect:1.99},
+        {src:"images/marlin-2.jpg", caption:"Marlin tile details", aspect:1}
       ]
     },
     {
@@ -641,8 +640,8 @@ button:disabled{ cursor: default; }
         "According to local lore, the builder intentionally left the heart as a gift for his wife on their anniversary. So, hidden among Avalon’s colorful tiles and architectural details is a little love story of its own. Did you spot it during the tour?"
       ],
       photos:[
-        {src:"images/heart-1.jpg", caption:"A single heart-shaped tile breaks the wall's pattern.", aspect:0.75},
-        {src:"images/heart-2.jpg", caption:"Best spotted in late afternoon light.", aspect:0.75}
+        {src:"images/heart-1.jpg", caption:"The rattle of Serpentine Wall", aspect:0.75},
+        {src:"images/heart-2.jpg", caption:"A closer look at the heart-shaped tile", aspect:0.75}
       ]
     },
     {
@@ -655,7 +654,7 @@ button:disabled{ cursor: default; }
     
       ],
       photos:[
-        {src:"images/leroy-1.jpg", caption:"Leroy's preferred throne: a warm doorstep.", aspect:0.75}
+        {src:"images/leroy-1.jpg", caption:"Leroy the Cat", aspect:0.75}
       ]
     }
   ];
