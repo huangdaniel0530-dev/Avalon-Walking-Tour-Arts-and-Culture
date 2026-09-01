@@ -22,6 +22,22 @@
   --cream-dim: #ece0c4;
   --line: rgba(247,241,228,0.16);
   --shadow: 0 18px 40px rgba(0,0,0,0.35);
+  --sky: #f5e8c4;
+--sky-deep: #eddaa2;
+--card: #fdf8ec;
+--card-2: #f6ecce;
+--navy: #2b3a46;
+--navy-dim: rgba(43,58,70,0.62);
+--navy-faint: rgba(43,58,70,0.42);
+--line: rgba(43,58,70,0.16);
+--water: #3e8fa3;
+--water-light: #6bb4c2;
+--terracotta: #c1583b;
+--terracotta-dim: #a2452c;
+--olive: #78875a;
+--olive-dim: #5e6c46;
+--flamingo: #c97b76;
+--flamingo-dim: #a85f5b;
 }
 
 *{box-sizing:border-box;}
@@ -71,35 +87,118 @@ button{ font-family:'Roboto', sans-serif; cursor:pointer; }
 
 /* ---------- start view ---------- */
 #view-start{
-  justify-content:space-between;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  background: var(--sky);
+}
+
+.cover-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+
+.cover-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.cover-top-caption{
+  position:absolute;
+  top:3%;
+  left:0;
+  right:0;
+  z-index:2;
+  text-align:right;
+  padding:0 20px;
+  font-family:'Roboto', sans-serif;
+  font-weight:500;
+  font-size:12px;
+  letter-spacing:0.02em;
+  color: #2c3258;
+}
+
+.cover-cta{
+  position:absolute;
+  top:calc(60% + 50px);
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  width:50%;
+  max-width:320px;
+  display:flex;
+  flex-direction:column;
   align-items:center;
+  gap:45px;
   text-align:center;
-  padding: 48px 28px 36px;
-  background:
-    radial-gradient(120% 60% at 50% 0%, var(--ink-3) 0%, var(--ink) 70%);
 }
-.start-top{ width:100%; }
-.brand-mark{ width:76px; height:76px; margin:0 auto 22px; }
-#view-start h1{ font-size:44px; color:var(--cream); }
-#view-start .subtitle{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--teal-light); margin-top:10px; }
-.start-mid{ padding: 20px 6px; }
-.start-mid p{ color: var(--cream-dim); font-size:15px; max-width:340px; margin:0 auto; }
-.stop-count{ font-family:'Fraunces', serif; font-size:20px; color:var(--gold); margin-top:18px; }
-
 .btn{
-  border:none; border-radius:999px; padding:16px 30px; font-size:20px; font-weight:700;
-  display:inline-flex; align-items:center; gap:10px; justify-content:center;
+  border:none;
+  border-radius:999px;
+  padding:16px 30px;
+  font-size:18px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  justify-content:center;
 }
-.btn-primary{ background: var(--gold); color: var(--ink); width:100%; max-width:320px; }
-.btn-primary.explored{ background: var(--teal); color: var(--cream); opacity:0.9; }
-button:disabled{ cursor: default; }
-.btn-primary:active{ background: var(--gold-dim); }
-.btn-ghost{ background: transparent; color: var(--cream); border:1px solid var(--line); }
-.btn-ghost:active{ border-color: var(--teal-light); }
-.btn-block{ width:100%; }
 
-.start-bottom{ width:100%; display:flex; flex-direction:column; align-items:center; gap:14px; }
-.perm-note{ font-size:12px; color: rgba(247,241,228,0.55); max-width:300px; }
+.btn-primary{
+  background:var(--terracotta);
+  color:var(--card);
+  width:100%;
+  max-width:320px;
+}
+
+/* Start-page button only */
+#view-start .cover-cta .btn-primary{
+  width:100%;
+  max-width:320px;
+  padding:16px 30px;
+  font-size:24px;
+  font-weight:700;
+  background: #d07057;
+  color: #fefdf7;
+}
+
+.btn-primary.explored{
+  background:var(--water);
+  color:var(--card);
+  opacity:0.95;
+}
+
+button:disabled{
+  cursor:default;
+}
+
+.btn-primary:active{
+  background:var(--terracotta-dim);
+}
+
+.btn-ghost{
+  background:#ffffff;
+  color:var(--navy);
+  border:1px solid var(--line);
+}
+
+.btn-ghost:active{
+  border-color:var(--water);
+}
+
+.btn-block{
+  width:100%;
+}
+
+.cover-cta .perm-note{
+  font-size:12px;
+  color:var(--card);
+  max-width:300px;
+  text-shadow:0 1px 4px rgba(20,30,40,0.45);
+}
 
 /* ---------- card / panel shared ---------- */
 .panel{
@@ -291,29 +390,29 @@ button:disabled{ cursor: default; }
 <body>
 <div id="app">
 
-  <!-- START -->
-  <section id="view-start" class="view active">
-    <svg class="corner-mark tl" viewBox="0 0 34 34"><path d="M0 17 Q17 0 34 17" stroke="#e8a33d" stroke-width="2" fill="none"/><path d="M0 26 Q17 9 34 26" stroke="#1c7a82" stroke-width="2" fill="none" opacity="0.7"/></svg>
-    <div class="start-top">
-      <svg class="brand-mark" viewBox="0 0 76 76" fill="none">
-        <circle cx="38" cy="38" r="36" stroke="#e8a33d" stroke-width="2"/>
-        <path d="M10 44 Q38 24 66 44" stroke="#3ea3ac" stroke-width="2.5" fill="none"/>
-        <path d="M14 52 Q38 34 62 52" stroke="#e2604f" stroke-width="2" fill="none" opacity="0.8"/>
-        <circle cx="38" cy="26" r="5" fill="#e8a33d"/>
-      </svg>
-      <div class="eyebrow">A Self-Guided Walking Tour</div>
-      <h1>AVALON</h1>
-      <div class="subtitle">Catalina Island &middot; Est. 1887</div>
+<!-- START -->
+<section id="view-start" class="view active">
+
+  <div class="cover-bg">
+    <img src="images/cover.jpg" alt="Avalon Walking Tour">
+  </div>
+
+  <div class="cover-top-caption">
+    Coordinated by the Catalina Museum for Art & History
+  </div>
+
+  <div class="cover-cta">
+    <button class="btn btn-primary" id="btn-begin">
+      Begin the Tour
+    </button>
+
+    <div class="perm-note">
+      We'll ask for location access so stops can play automatically as you approach.
+      You can also just tap markers on the map instead.
     </div>
-    <div class="start-mid">
-      <p>Eleven stops thread through Avalon's tiled sidewalks and harbor promenade &mdash; from a sea lion's bronze legend to the ballroom where thousands once danced. Walk at your own pace; your guide plays automatically as you arrive.</p>
-      <div class="stop-count">11 Stops &middot; ~2 hrs on foot</div>
-    </div>
-    <div class="start-bottom">
-      <button class="btn btn-primary" id="btn-begin">Begin the Tour</button>
-      <div class="perm-note">We'll ask for location access so stops can play automatically as you approach. You can also just tap markers on the map instead.</div>
-    </div>
-  </section>
+  </div>
+
+</section>
 
   <!-- HOME / INTRO -->
   <section id="view-home" class="view">
