@@ -50,12 +50,11 @@ body{
   -webkit-font-smoothing:antialiased;
   overscroll-behavior:none;
 }
-h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; margin:0; letter-spacing:0.01em; }
+h1,h2,h3{ font-family:'IBM Plex Mono', monospace; font-weight:600; margin:0; letter-spacing:0.01em; }
 .eyebrow{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:11px;
+  font-family:'Roboto', sans-serif;
+  font-size:12px;
   letter-spacing:0.18em;
-  text-transform:uppercase;
   color: var(--gold);
 }
 p{ line-height:1.65; }
@@ -198,6 +197,25 @@ button:disabled{
   color:var(--card);
   max-width:300px;
   text-shadow:0 1px 4px rgba(20,30,40,0.45);
+}
+
+.visit-museum-btn{
+  position:absolute;
+  right:16px;
+  bottom:120px;
+
+  padding:8px 14px;
+  border-radius:999px;
+
+  background:var(--gold);
+  color:var(--ink);
+
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* ---------- card / panel shared ---------- */
@@ -417,8 +435,7 @@ button:disabled{
   <!-- HOME / INTRO -->
   <section id="view-home" class="view">
     <div class="panel audio-card">
-      <div class="eyebrow">Welcome</div>
-      <h2>Hello, Avalon.</h2>
+      <h2>  Before We Wander...</h2>
       <div class="audio-controls">
         <button class="play-btn" id="home-play"><svg id="home-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#f7f1e4"/></svg></button>
         <div class="bars" id="home-bars"><span></span><span></span><span></span><span></span></div>
@@ -440,11 +457,19 @@ button:disabled{
     <div id="leaflet-map"></div>
     <div class="map-topbar">
       <div>
-        <div class="eyebrow">Avalon</div>
-        <h2>Arts and Culture Walking Tour</h2>
+        <div class="eyebrow">Avalon Walking Tour</div>
+        <h2>Explore Arts and Culture</h2>
       </div>
       <button class="pill-btn" id="btn-recenter">Recenter</button>
     </div>
+    <a
+    href="https://www.catalinamuseum.org/"
+    class="visit-museum-btn"
+    target="_blank"
+    rel="noopener"
+    >
+      Visit the Museum↗
+    </a>
     <div class="map-sheet">
       <div class="sheet-progress">
         <div class="eyebrow">Progress</div>
@@ -482,18 +507,13 @@ button:disabled{
   <!-- END -->
   <section id="view-end" class="view">
     <div class="panel audio-card">
-      <div class="eyebrow">Journey Complete</div>
-      <h2>Fair winds.</h2>
+      <h2>Fair Winds</h2>
       <div class="audio-controls">
         <button class="play-btn" id="end-play"><svg id="end-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#f7f1e4"/></svg></button>
         <div class="bars" id="end-bars"><span></span><span></span><span></span><span></span></div>
       </div>
       <div class="audio-status" id="end-status">Tap play to begin</div>
       <p class="transcript" id="end-transcript"></p>
-      <div class="secret-note" id="secret-note">
-        <div class="eyebrow" style="color:var(--coral);">\u2726 Bonus</div>
-        Three secret details have appeared on the map \u2014 Marlin Tiles, Serpentine Heart, and Leroy the Cat. See if you can find them.
-      </div>
     </div>
     <button class="btn btn-primary btn-block" id="btn-find-secrets">Find the Secret Stops</button>
     <button class="btn btn-ghost btn-block" id="btn-replay">Replay the Tour</button>
