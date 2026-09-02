@@ -22,8 +22,8 @@
   --cobalt: #3d6ea5;
   --cream: #f7f1e4;
   --cream-dim: #ece0c4;
-  --line: rgba(247,241,228,0.16);
-  --shadow: 0 18px 40px rgba(0,0,0,0.35);
+  --line: rgba(247, 241, 228, 0.39);
+  --shadow: 0 18px 40px #525e79;
   --sky: #f5e8c4;
 --sky-deep: #eddaa2;
 --card: #fdf8ec;
@@ -46,8 +46,8 @@
 html,body{height:100%;}
 body{
   margin:0;
-  background: var(--ink);
-  color: var(--cream);
+  background: #e7e2d1f6;
+  color: #3f485d;
   font-family:'Roboto', sans-serif;
   -webkit-font-smoothing:antialiased;
   overscroll-behavior:none;
@@ -67,8 +67,8 @@ button{ font-family:'Roboto', sans-serif; cursor:pointer; }
   margin:0 auto;
   min-height:100vh;
   position:relative;
-  background: var(--ink);
-  box-shadow: var(--shadow);
+  background: #f7ecc5;
+  box-shadow:0 6px 20px rgba(82, 94, 121, 0.3);
   overflow:hidden;
 }
 
@@ -119,7 +119,7 @@ button{ font-family:'Roboto', sans-serif; cursor:pointer; }
   font-weight:500;
   font-size:12px;
   letter-spacing:0.02em;
-  color: #2c3258;
+  color: #525e79;
 }
 
 .cover-cta{
@@ -181,13 +181,13 @@ button:disabled{
 }
 
 .btn-ghost{
-  background:#ffffff;
-  color:var(--navy);
+  background:#d07057 ;
+  color:#fefdf7;
   border:1px solid var(--line);
 }
 
 .btn-ghost:active{
-  border-color:var(--water);
+  border-color:var(--line);
 }
 
 .btn-block{
@@ -198,7 +198,7 @@ button:disabled{
   font-size:12px;
   color:var(--card);
   max-width:300px;
-  text-shadow:0 1px 4px rgba(20,30,40,0.45);
+  text-shadow:0 1px 4px #525e79;
 }
 
 .visit-museum-btn{
@@ -222,10 +222,12 @@ button:disabled{
 
 /* ---------- card / panel shared ---------- */
 .panel{
-  background: var(--ink-2);
+  background: #f5eed9;
   border:1px solid var(--line);
+  box-shadow:0 6px 20px rgba(82, 94, 121, 0.3);
   border-radius: 22px;
   padding: 30px 26px;
+  border-top: 4px solid #d07057;
 }
 
 /* ---------- home & end views ---------- */
@@ -237,27 +239,34 @@ button:disabled{
 .audio-card{ text-align:center; }
 .audio-card h2{ font-size:30px; margin: 10px 0 4px; }
 .audio-card .eyebrow{ display:block; margin-bottom:10px; }
-.audio-card p.transcript{ color: var(--cream-dim); font-size:18.5px; margin: 18px 0 8px; text-align:left; }
+.audio-card p.transcript{ color: #3f485d; font-size:18.5px;font-weight:500; margin: 18px 0 8px; text-align:left; }
 .secret-note{
   text-align:left; margin-top:16px; padding:14px 16px; border-radius:14px;
   background: rgba(226,96,79,0.12); border:1px dashed var(--coral);
-  font-size:13.5px; color: var(--cream-dim); line-height:1.5;
+  font-size:13.5px; color: #525e79; line-height:1.5;
 }
 .home-photo{ margin-top: 18px; text-align:left; }
-.home-photo .photo-frame{ width:100%; height:auto; aspect-ratio:1/1; }
+.home-photo .photo-frame{ width:100%; height:auto; box-shadow: none; aspect-ratio:1/1; }
 .home-photo .photo-caption{ margin-top:10px; }
 
 /* ---------- audio control ---------- */
-.audio-controls{ display:flex; align-items:center; justify-content:center; gap:16px; margin: 20px 0 6px; }
+.audio-controls{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:20px 0 6px;
+}
 .play-btn{
-  width:64px; height:64px; border-radius:50%; border:none; background: var(--teal);
+  width:64px; height:64px; border-radius:50%; border:none; background: #78b7d5 ;
   color: var(--cream); display:flex; align-items:center; justify-content:center;
-  box-shadow: 0 10px 22px rgba(28,122,130,0.45);
+  
 }
 .play-btn:active{ background: var(--teal-light); }
-.audio-status{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color: var(--gold); min-height:14px; }
+.audio-status{ font-family:'IBM Plex Mono', monospace; font-weight: 600; font-size:12px; letter-spacing:0.1em; color: #78b7d5; min-height:14px; }
 .bars{ display:flex; align-items:flex-end; gap:3px; height:22px; }
-.bars span{ width:3px; background: var(--gold); border-radius:2px; height:6px; opacity:0.5; }
+.bars span{ width:3px; background: #78b7d5; border-radius:2px; height:6px; opacity:0.5; }
 .bars.playing span{ animation: bar 1s ease-in-out infinite; }
 .bars.playing span:nth-child(2){ animation-delay:0.15s; }
 .bars.playing span:nth-child(3){ animation-delay:0.3s; }
@@ -363,9 +372,10 @@ button:disabled{
 #view-site{ padding: 0 0 100px; overflow-y:auto; }
 .ticket{
   margin: 18px 16px 0;
-  background: var(--ink-2);
+  background: #e7e2d1f6;
   border-radius: 20px;
   border: 1px dashed var(--line);
+  border-top: 4px solid #d07057;
   overflow:hidden;
 }
 .ticket-head{
@@ -378,24 +388,31 @@ button:disabled{
 .back-link{ background:none; border:none; color: var(--cream-dim); font-size:13px; display:flex; align-items:center; gap:6px; }
 .ticket-body{ padding: 22px 22px 6px; }
 .ticket-body h2{ font-family:'IBM Plex Mono', monospace; font-size:30px; margin-bottom:14px; }
-.transcript{ color: var(--cream-dim); font-size:18.5px; }
+.transcript{ color: #3f485d; font-size:18.5px; font-weight:500; }
 .transcript p{ margin: 0 0 14px; }
 .transcript p:last-child{ margin-bottom:0; }
 
 .photos{ display:flex; gap:12px; padding: 8px 22px 22px; overflow-x:auto; }
 .photo-card{ flex:0 0 auto; }
 .photo-frame{
-  height:180px; border-radius:14px;
-  background: repeating-linear-gradient(135deg, var(--ink-3), var(--ink-3) 10px, #10333c 10px, #10333c 20px);
-  border:1px dashed var(--line);
-  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;
-  color: rgba(247,241,228,0.4);
+  height:180px;
+  border:none;
+  border-radius:10px;
+  background:none;
+  box-shadow:none;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:8px;
+  color:var(--navy-faint);
   overflow:hidden;
 }
 .photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
 .photo-frame svg{ width:30px; height:30px; opacity:0.7; }
 .photo-frame .ph-label{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; }
-.photo-caption{ font-size:15px; color: rgba(247,241,228,0.6); margin-top:8px; line-height:1.4; }
+.photo-caption{ font-size:15px; color: #3f485d; margin-top:8px; line-height:1.4; }
 
 .site-actions{ padding: 10px 22px 26px; display:flex; flex-direction:column; gap:10px; }
 
@@ -438,11 +455,15 @@ button:disabled{
   <section id="view-home" class="view">
     <div class="panel audio-card">
       <h2>  Before We Wander...</h2>
-      <div class="audio-controls">
-        <button class="play-btn" id="home-play"><svg id="home-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#f7f1e4"/></svg></button>
-        <div class="bars" id="home-bars"><span></span><span></span><span></span><span></span></div>
+    <div class="audio-controls">
+      <button class="play-btn" id="home-play"><svg id="home-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fdf8ec"/></svg></button>
+
+      <div class="bars" id="home-bars">
+      <span></span><span></span><span></span><span></span>
       </div>
+
       <div class="audio-status" id="home-status">Tap play to begin</div>
+      </div>
       <p class="transcript" id="home-transcript"></p>
       <div class="home-photo">
         <div class="photo-frame">
@@ -547,7 +568,7 @@ button:disabled{
       triggerRadius: 20,  // meters
       audioUrl:'audio/museum.mp3',
       paragraphs:[
-        "We are now at the Catalina Museum for Art and History. The museum has been an arts and cultural hub for the island since 1953. It first opened on the ground floor of the Casino before moving into this charming building in 2016. Look closely at the façade, from the shape of the left wing to the pillars and triangular wall decorations. You may notice that these details echo the iconic Avalon landmark: the Casino.",
+        "We are now at the Catalina Museum for Art & History. The museum has been an arts and cultural hub for the island since 1953. It first opened on the ground floor of the Casino before moving into this charming building in 2016. Look closely at the façade, from the shape of the left wing to the pillars and triangular wall decorations. You may notice that these details echo the iconic Avalon landmark: the Casino.",
         "As for the banners hanging from the central building, their angled bottoms mimic the way the museum sits on the slope. But don’t worry, the building itself is perfectly level! The banners’ vibrant colors represent Catalina’s sea and sky, from sunrise to sunset, while the four sections feature familiar visual elements of the island, including palms trees, rippling water, and Catalina tiles. By weaving the island’s landscape and artistic traditions into its architecture, the museum gives us a glimpse of the many stories waiting to be discovered.",
         "Another highlight is the community artwork on the right wing—it’s actually a garage door used to move large collection items into the museum. But the museum brings in much more than objects. Through its exhibitions, workshops, and community events, it brings Catalina’s art, history, and people together."
       ],
