@@ -149,8 +149,8 @@ button{ font-family:'Roboto', sans-serif; cursor:pointer; }
 }
 
 .btn-primary{
-  background:var(--terracotta);
-  color:var(--card);
+  background: #d07057;
+  color: #fefdf7;
   width:100%;
   max-width:320px;
 }
@@ -167,8 +167,8 @@ button{ font-family:'Roboto', sans-serif; cursor:pointer; }
 }
 
 .btn-primary.explored{
-  background:var(--water);
-  color:var(--card);
+  background:#78b7d5 ;
+  color:#fefdf7;
   opacity:0.95;
 }
 
@@ -177,14 +177,17 @@ button:disabled{
 }
 
 .btn-primary:active{
-  background:var(--terracotta-dim);
+  background:#d07057 ;
 }
 
+#btn-to-map{ background: #d07057; color:#fefdf7; }
+
 .btn-ghost{
-  background:#d07057 ;
-  color:#fefdf7;
-  border:none;
+  background:#f5eed9; 
+  color:#3f485d;
+  border:1px solid var(--line);
 }
+
 
 .btn-ghost:active{
   border-color:var(--line);
@@ -204,7 +207,7 @@ button:disabled{
 .visit-museum-btn{
   position:absolute;
   right:16px;
-  bottom:120px;
+  bottom:140px;
 
   padding:8px 14px;
   border-radius:999px;
@@ -242,7 +245,7 @@ button:disabled{
 .audio-card p.transcript{ color: #3f485d; font-size:18.5px;font-weight:500; margin: 18px 0 8px; text-align:left; }
 .secret-note{
   text-align:left; margin-top:16px; padding:14px 16px; border-radius:14px;
-  background: rgba(226,96,79,0.12); border:1px dashed var(--coral);
+  background: rgba(226,96,79,0.12); border:1px solid #e5a392;
   font-size:13.5px; color: #525e79; line-height:1.5;
 }
 .home-photo{ margin-top: 18px; text-align:left; }
@@ -369,8 +372,8 @@ button:disabled{
   border:none;
   box-shadow:0 0.2px 3px #708497;
 }
-.site-pin.secret .label{ border-color: var(--coral); color: var(--coral); border-style:dashed; }
-.site-pin.visited .label{ border-color: var(--gold); color: var(--gold); border-style:solid; }
+.site-pin.secret .label{ border-color: #e5a392; color: #e5a392; border-style:solid; }
+.site-pin.visited .label{ border-color: #f8efb9; color: #f8efb9; border-style:solid; }
 .site-pin .label::after{
   content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%);
   border:4px solid transparent; border-top-color: var(--ink-2);
@@ -401,20 +404,14 @@ button:disabled{
 #view-site{ padding: 0 0 100px; overflow-y:auto; }
 .ticket{
   margin: 18px 16px 0;
-  background: #e7e2d1f6;
+  background: #f5eed9;
   border-radius: 20px;
-  border: 1px dashed var(--line);
+  border: 1px solid var(--line);
   border-top: 4px solid #d07057;
   overflow:hidden;
 }
-.ticket-head{
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 16px 20px;
-  background: var(--ink-3);
-  border-bottom: 1px dashed var(--line);
-}
 .stop-num{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--gold); letter-spacing:0.1em; }
-.back-link{ background:none; border:none; color: var(--cream-dim); font-size:13px; display:flex; align-items:center; gap:6px; }
+
 .ticket-body{ padding: 22px 22px 6px; }
 .ticket-body h2{ font-family:'IBM Plex Mono', monospace; font-size:30px; margin-bottom:14px; }
 .transcript{ color: #3f485d; font-size:18.5px; font-weight:500; }
@@ -498,7 +495,7 @@ button:disabled{
         <div class="photo-frame">
           <img src="images/intro.jpg" alt="Santa Catalina's travel stickers designed by Otis Shepard." aspect="1:1">
         </div>
-        <div class="photo-caption">Santa Catalina's travel stickers designed by Otis Shepard</div>
+        <div class="photo-caption">Santa Catalina's travel sticker designed by Otis Shepard</div>
       </div>
     </div>
     <button class="btn btn-ghost btn-block" id="btn-to-map">Continue to Map &rarr;</button>
@@ -536,9 +533,7 @@ button:disabled{
   <!-- SITE -->
   <section id="view-site" class="view">
     <div class="ticket">
-      <div class="ticket-head">
-        <button class="back-link" id="btn-back-map">&larr; Map</button>
-      </div>
+    
       <div class="ticket-body">
         <h2 id="site-name">Site name</h2>
         <div class="audio-controls" style="justify-content:flex-start;">
@@ -621,9 +616,9 @@ button:disabled{
       ],
       photos:[
         {src:"images/birdpark-1.jpg", caption:"Bird Park Tiles", aspect:1.33},
-        {src:"images/birdpark-2.jpg", caption:"Vintage postcard of Catalina's large bird cage, Museum Collection ", aspect:1.55},
-        {src:"images/birdpark-3.jpg", caption:"Roger \"Bud\" Upton's original design of the parakeets tile", aspect:0.65},
-        {src:"images/birdpark-4.jpg", caption:"Historic parakeets tiles on display at the museum", aspect:0.74}
+        {src:"images/birdpark-2.jpg", caption:"<em>The Large Cage, Bird Park, Santa Catalina, California</em>", aspect:1.55},
+        {src:"images/birdpark-3.jpg", caption:"Original design of the parakeets tile by Roger \"Bud\" Upton", aspect:0.65},
+        {src:"images/birdpark-4.jpg", caption:"Historic parakeets tiles on display", aspect:0.74}
       ]
     },
     {
@@ -638,7 +633,7 @@ button:disabled{
         "If we look a little closer, we can even recognize some local residents in the painting. For example, on the roof of the El Galleon restaurant, you’ll see a couple dressed in red —the woman depicted was Avalon’s Mayor and her husband when the mural was painted! By including so many real-life details, this mural not only captures the energy of Avalon’s cityscape, but it also shows how the spirit of Catalina lives through its local community. "
       ],
       photos:[
-        {src:"images/spirit-1.jpg", caption:"Original studio draft of the mural, Museum Collection", aspect:3.73},
+        {src:"images/spirit-1.jpg", caption:"Original studio draft of the mural", aspect:3.73},
       ]
     },
     {
@@ -671,7 +666,7 @@ button:disabled{
       ],
       photos:[
         {src:"images/serpentine-1.jpg", caption:"Serpentine Wall", aspect:0.75},
-        {src:"images/serpentine-2.jpg", caption:"<em>Serpentine Wall</em>, by Buck Lopez, Museum Collection", aspect:0.75},
+        {src:"images/serpentine-2.jpg", caption:"<em>Serpentine Wall</em>, by Buck Lopez", aspect:0.75},
         {src:"images/serpentine-3.jpg", caption:"Catalina's custom font, designed by the Shepards", aspect:1}
       ]
     },
@@ -688,7 +683,7 @@ button:disabled{
       ],
       photos:[
         {src:"images/fountain-1.jpg", caption:"Wrigley Fountain", aspect:1},
-        {src:"images/fountain-2.jpg", caption:"Postcard of the Wrigley Fountain in the 1970s, Museum Collection", aspect:0.79},
+        {src:"images/fountain-2.jpg", caption:"<em>Wrigley Fountain</em>, 1970s.", aspect:0.79},
         {src:"images/fountain-3.jpg", caption:"Tentative Artwork by Robin Cassidy", aspect:1.33}
       ]
     },
@@ -723,10 +718,10 @@ button:disabled{
       ],
       photos:[
         {src:"images/tuna-1.jpg", caption:"<em>Leaping Tuna</em>", aspect:0.75},
-        {src:"images/tuna-2.jpg", caption:"Vintage postcard of the swordfish catch in 1917, Museum Collection", aspect:0.63},
-        {src:"images/tuna-3.jpg", caption:"Postcard of the Submarine Gardens, Museum Collection", aspect:1.55},
-        {src:"images/tuna-4.jpg", caption:"Travel brochure featuring flying fish, 1950s, Museum Collection", aspect:0.57},
-        {src:"images/tuna-5.jpg", caption:"Marlin tile replica", aspect:1}
+        {src:"images/tuna-2.jpg", caption:"<em>Largest Swordfish to Date, August 3, 1917</em>", aspect:0.63},
+        {src:"images/tuna-3.jpg", caption:"<em>Submarine Gardens</em>", aspect:1.55},
+        {src:"images/tuna-4.jpg", caption:"Travel brochure featuring flying fish, 1950s.", aspect:0.57},
+        {src:"images/tuna-5.jpg", caption:"Tilepiece featuring a marlin", aspect:1}
       ]
     },
     {
@@ -762,7 +757,7 @@ button:disabled{
       photos:[
         {src:"images/bay-1.jpg", caption:"<em>Bay of Seven Moons</em>", aspect:1.89},
         {src:"images/bay-2.jpg", caption:"Pimugnan sculptors carving soapstone.", aspect:1.45},
-        {src:"images/bay-3.jpg", caption:"Beads and pendants on display, museum collection", aspect:0.76}
+        {src:"images/bay-3.jpg", caption:"Beads and pendants on display", aspect:0.76}
       ]
     },
     {
@@ -816,16 +811,16 @@ button:disabled{
       ]
     },
     {
-      id:'leroythecat', name:'Leroy the Cat',
+      id:'leroythecat', name:'<em>Leroy the Cat</em>',
       lat:33.344286, lng:-118.326146,
       triggerRadius: 7,  // meters
       audioUrl:'audio/leroy.mp3',
       paragraphs:[
-        "Most people think of Old Ben when you ask about Catalina’s mascots, but this cat was also a local favorite! Meet Leroy the Cat. During the 1970s and 1980s, Leroy was adopted by the whole town, earning a special place in the hearts of locals. This sculpture was created by Will Richards, the artist behind <em>Bay of Seven Moons</em>. And here’s another little piece of Catalina trivia: did you know there’s a pet cemetery on the island?",
+        "Most people think of Old Ben when you ask about Catalina’s mascots, but this cat was also a local favorite! Meet <em>Leroy the Cat</em>. During the 1970s and 1980s, Leroy was adopted by the whole town, earning a special place in the hearts of locals. This sculpture was created by Will Richards, the artist behind <em>Bay of Seven Moons</em>. And here’s another little piece of Catalina trivia: did you know there’s a pet cemetery on the island?",
     
       ],
       photos:[
-        {src:"images/leroy-1.jpg", caption:"Leroy the Cat", aspect:0.75}
+        {src:"images/leroy-1.jpg", caption:"<em>Leroy the Cat</em>", aspect:0.75}
       ]
     }
   ];
@@ -962,18 +957,27 @@ button:disabled{
   }
 
 function goEnd(){
+
   showView('end');
 
+  window.scrollTo(0, 0);
+
   var transcript = $('end-transcript');
+
   transcript.innerHTML = '';
 
   END_TEXT.forEach(function(paragraph){
+
     var p = document.createElement('p');
+
     p.innerHTML = paragraph;
+
     transcript.appendChild(p);
+
   });
 
   resetAudioUI('end');
+
 }
   var PHOTO_HEIGHT = 180; // fixed display height in px; width is derived per-photo from its aspect ratio
 
@@ -1021,7 +1025,7 @@ var currentAudio = null;
 var activePrefix = null;
 
 function resetAudioUI(prefix){
-  $(prefix + '-status').textContent = 'Tap play to begin';
+  $(prefix + '-status').textContent = 'Tap Play to Begin';
   $(prefix + '-bars').classList.remove('playing');
   setPlayIcon(prefix, true);
 }
@@ -1232,7 +1236,7 @@ function buildPinIcon(site, isSecret){
   );
 
   map.fitBounds(bounds, {
-    paddingTopLeft: [30, 80],
+    paddingTopLeft: [60, 210],
     paddingBottomRight: [30, 280],
     maxZoom: 16
   });
@@ -1357,9 +1361,6 @@ $('btn-mark-visited').addEventListener('click', function(){
   if (state.currentSiteId) markVisited(state.currentSiteId);
 });
 
-$('btn-back-map').addEventListener('click', function(){
-  goMap();
-});
 
 $('btn-site-to-map').addEventListener('click', function(){
   goMap();
