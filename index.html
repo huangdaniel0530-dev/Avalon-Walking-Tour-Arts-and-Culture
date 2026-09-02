@@ -183,7 +183,7 @@ button:disabled{
 .btn-ghost{
   background:#d07057 ;
   color:#fefdf7;
-  border:1px solid var(--line);
+  border:none;
 }
 
 .btn-ghost:active{
@@ -209,8 +209,8 @@ button:disabled{
   padding:8px 14px;
   border-radius:999px;
 
-  background:var(--gold);
-  color:var(--ink);
+  background: #d07057;
+  color: #fefdf7;
 
   font-size:12px;
   font-weight:800;
@@ -279,29 +279,58 @@ button:disabled{
 .map-topbar{
   position:absolute; top:0; left:0; right:0; z-index:500;
   padding: 16px 18px 40px;
-  background: linear-gradient(180deg, rgba(14,42,51,0.92) 0%, rgba(14,42,51,0) 100%);
+  background: linear-gradient(180deg, #88c5e1d0  0%, #78b7d510  100%);
   display:flex; align-items:center; justify-content:space-between;
 }
-.map-topbar h2{ font-family:'Roboto', sans-serif; font-size:24px; font-weight:800; color:var(--cream); }
-.map-topbar .eyebrow{ margin-bottom:2px; }
-.pill-btn{ background: rgba(14,42,51,0.85); border:1px solid var(--line); color:var(--cream); border-radius:999px; padding:8px 14px; font-size:12px; font-weight:800; font-family:'Roboto', sans-serif; }
+.map-topbar h2{ font-family:'Roboto', sans-serif; font-size:24px; font-weight:800; color: #f5eed9; text-shadow:0 0.1px 3px #708497;}
+.map-topbar .eyebrow{ color: #414a5f;margin-bottom:2px; }
+.pill-btn{ background: #f5eed9; border: none; color: #525e79; border-radius:999px; padding:8px 14px; font-size:12px; font-weight:800; font-family:'Roboto', sans-serif; }
 
 .map-sheet{
   position:absolute; left:0; right:0; bottom:0; z-index:500;
-  background: var(--ink-2);
-  border-top:1px solid var(--line);
+  background: #f5eed9;
+  border-top: 4px solid #d07057;
   border-radius: 22px 22px 0 0;
   padding: 16px 18px 20px;
-  box-shadow: 0 -14px 30px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 20px #525e79;
 }
 .sheet-progress{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
-.sheet-progress .eyebrow{ margin:0; }
-.sheet-count{ font-family:'Roboto', serif; font-size:20px; font-weight:800; color:var(--gold); }
-.progress-strip{ height:8px; border-radius:4px; background: rgba(247,241,228,0.15); overflow:hidden; margin: 10px 0 12px; }
-.progress-strip .fill{ height:100%; border-radius:4px; background: linear-gradient(90deg, var(--teal), var(--gold)); transition: width 0.5s ease; }
-.nearest-line{ font-size:13px; color: var(--cream-dim); }
-.nearest-line b{ color: var(--cream); }
-.gps-off-note{ font-size:12px; color: rgba(247,241,228,0.55); margin-top:6px; }
+.sheet-progress .eyebrow{ color: #525e79; margin:0; }
+.sheet-count{ font-family:'Roboto', serif; font-size:20px; font-weight:800; color:#d07057 ; margin-right: 30px; }
+.progress-strip{
+  --progress: 0%;
+  position: relative;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    #d07057 0%,
+    #f8efb9 25%,
+    #a4c469 50%,
+    #a6cfc2 75%,
+    #78b7d5 100%
+  );
+  overflow: hidden;
+  margin: 10px 0 12px;
+}
+
+.progress-strip::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - var(--progress));
+  height: 100%;
+  background: rgb(215, 214, 209);
+  transition: width 0.5s ease;
+}
+
+.progress-strip .fill{
+  display:none;
+}
+.nearest-line{ font-size:13px; color: #525e79; }
+.nearest-line b{ color: var(--gold); }
+.gps-off-note{ font-size:12px; color: #525e79; margin-top:6px; }
 
 .leaflet-div-icon{
   background:transparent;
@@ -330,15 +359,15 @@ button:disabled{
   transform:translateX(-50%);
   white-space:nowrap;
   pointer-events:auto;
-  background:var(--ink-2);
-  color:var(--cream);
+  background: #446072;
+  color: #fefdf7;
   font-family:'IBM Plex Mono', monospace;
   font-size:13.5px;
   letter-spacing:0.02em;
   padding:5px 10px;
   border-radius:8px;
-  border:1px solid var(--line);
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+  border:none;
+  box-shadow:0 0.2px 3px #708497;
 }
 .site-pin.secret .label{ border-color: var(--coral); color: var(--coral); border-style:dashed; }
 .site-pin.visited .label{ border-color: var(--gold); color: var(--gold); border-style:solid; }
@@ -491,7 +520,7 @@ button:disabled{
     target="_blank"
     rel="noopener"
     >
-      Visit the Museum↗
+      Visit the Museum ↗
     </a>
     <div class="map-sheet">
       <div class="sheet-progress">
@@ -1137,16 +1166,22 @@ function playSite(){
     }
   }
 
-  function renderProgress(){
-    var mainCount = mainVisitedCount();
-    var strip = $('progress-strip');
-    if (strip){
-      var pct = Math.round((mainCount / SITES.length) * 100);
-      strip.innerHTML = '<div class="fill" style="width:' + pct + '%"></div>';
-    }
-    var count = $('progress-count');
-    if (count) count.textContent = mainCount + ' / ' + SITES.length + ' stops';
+function renderProgress(){
+  var mainCount = mainVisitedCount();
+  var strip = $('progress-strip');
+
+  if (strip){
+    var pct = Math.round((mainCount / SITES.length) * 100);
+
+    strip.style.setProperty('--progress', pct + '%');
   }
+
+  var count = $('progress-count');
+
+  if (count){
+    count.textContent = mainCount + ' / ' + SITES.length + ' stops';
+  }
+}
 
   /* ===================== MAP ===================== */
 function buildPinIcon(site, isSecret){
@@ -1282,7 +1317,7 @@ function buildPinIcon(site, isSecret){
 
   function recenterMap(){
     if (map && state.userLatLng){ map.setView(state.userLatLng, 17); }
-    else if (map){ map.setView([33.3427, -118.3247], 16); }
+    else if (map){ map.setView([33.3424, -118.3247], 16); }
   }
 
   /* ===================== WIRE UP ===================== */
