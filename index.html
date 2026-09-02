@@ -401,7 +401,8 @@ button:disabled{
 }
 
 /* ---------- site view ---------- */
-#view-site{ padding: 0 0 100px; overflow-y:auto; }
+#view-site{ padding: 0 0 100px; overflow-y:auto; -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;}
 .ticket{
   margin: 18px 16px 0;
   background: #f5eed9;
@@ -942,19 +943,29 @@ button:disabled{
     }, 50);
   }
 
-  function goSite(id){
-    var site = siteById(id);
-    if (!site) return;
-    state.currentSiteId = id;
-    showView('site');
-    $('site-name').innerHTML = site.name;
-    renderParagraphs('site-transcript', site.paragraphs);
-    resetAudioUI('site');
-    renderPhotos(site);
-    updateExploredButton();
-    // autoplay narration on arrival
-    setTimeout(function(){ playSite(); }, 250);
-  }
+function goSite(id){
+  var site = siteById(id);
+  if (!site) return;
+
+  state.currentSiteId = id;
+
+  showView('site');
+
+  $('site-name').innerHTML = site.name;
+  renderParagraphs('site-transcript', site.paragraphs);
+  resetAudioUI('site');
+  renderPhotos(site);
+  updateExploredButton();
+
+  // Always start the site view at the top
+  var siteView = $('view-site');
+  siteView.scrollTop = 0;
+
+  // Try to autoplay narration on arrival
+  setTimeout(function(){
+    playSite();
+  }, 250);
+}
 
 function goEnd(){
 
@@ -1064,6 +1075,8 @@ function playAudio(audioUrl, prefix, onEnd){
   stopAudio();
 
   var audio = new Audio(audioUrl);
+  audio.preload = 'auto';
+
   currentAudio = audio;
   activePrefix = prefix;
 
@@ -1091,11 +1104,17 @@ function playAudio(audioUrl, prefix, onEnd){
     activePrefix = null;
   });
 
-  audio.play().catch(function(){
-    $(prefix + '-status').textContent = 'Tap play to start audio';
-    $(prefix + '-bars').classList.remove('playing');
-    setPlayIcon(prefix, true);
-  });
+  var playPromise = audio.play();
+
+  if (playPromise !== undefined){
+    playPromise.catch(function(error){
+      console.log('Autoplay blocked:', error);
+
+      $(prefix + '-status').textContent = 'Tap Play to Begin';
+      $(prefix + '-bars').classList.remove('playing');
+      setPlayIcon(prefix, true);
+    });
+  }
 }
 
 function toggleAudio(audioUrl, prefix, onEnd){
@@ -1335,7 +1354,7 @@ $('btn-begin').addEventListener('click', function(){
 });
 
 $('home-play').addEventListener('click', function(){
-  toggleAudio('audio/welcome.mp3', 'home', function(){
+  toggleAudio(HOME_AUDIO, 'home', function(){
     initMap();
     goMap();
   });
