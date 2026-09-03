@@ -402,12 +402,13 @@ button:disabled{
 
 /* ---------- site view ---------- */
 #view-site{
-  padding: env(safe-area-inset-top) 0 100px;
-  overflow-y:auto;
-  box-sizing:border-box;
+  padding-top: calc(env(safe-area-inset-top) + 18px);
+  padding-bottom: 100px;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 .ticket{
-  margin: 18px 16px 0;
+  margin: 0 16px;
   background: #f5eed9;
   border-radius: 20px;
   border: 1px solid var(--line);
