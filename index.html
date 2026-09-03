@@ -950,20 +950,31 @@ button:disabled{
 function goSite(id){
   var site = siteById(id);
   if (!site) return;
+
   state.currentSiteId = id;
   showView('site');
 
   $('site-name').innerHTML = site.name;
   renderParagraphs('site-transcript', site.paragraphs);
   resetAudioUI('site');
-renderPhotos(site);
-updateExploredButton();
+  renderPhotos(site);
+  updateExploredButton();
 
-// Always start each site at the top
-$('view-site').scrollTop = 0;
+  // Reset the site view AFTER the new content has been rendered
+  requestAnimationFrame(function(){
+    $('view-site').scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
 
-// Always start the picture strip at the left
-$('site-photos').scrollLeft = 0;
+    // Also reset the horizontal photo strip
+    $('site-photos').scrollTo({
+      left: 0,
+      top: 0,
+      behavior: 'instant'
+    });
+  });
 
   // autoplay narration on arrival
   setTimeout(function(){ playSite(); }, 250);
