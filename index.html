@@ -517,7 +517,7 @@ button:disabled{
       <button class="pill-btn" id="btn-recenter">Recenter</button>
     </div>
     <a
-    href="https://www.catalinamuseum.org/"
+    href="https://www.catalinamuseum.org/tickets-hours"
     class="visit-museum-btn"
     target="_blank"
     rel="noopener"
@@ -940,12 +940,28 @@ button:disabled{
   resetAudioUI('home');
 }
 
-  function goMap(){
-    showView('map');
-    setTimeout(function(){
-      if (map){ map.invalidateSize(); }
-    }, 50);
+function goMap(){
+  showView('map');
+
+  // Reset all possible scroll positions when entering the map
+  window.scrollTo(0, 0);
+
+  var siteView = $('view-site');
+  if (siteView) {
+    siteView.scrollTop = 0;
+    siteView.scrollLeft = 0;
   }
+
+  // Give iPhone Safari a moment to render the map view,
+  // then recalculate the Leaflet map size.
+  setTimeout(function(){
+    window.scrollTo(0, 0);
+
+    if (map){
+      map.invalidateSize();
+    }
+  }, 100);
+}
 
 function goSite(id){
   var site = siteById(id);
@@ -960,24 +976,26 @@ function goSite(id){
   renderPhotos(site);
   updateExploredButton();
 
-  // Reset the site view AFTER the new content has been rendered
+  // Reset site view to the top after the content is rendered
   requestAnimationFrame(function(){
-    $('view-site').scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant'
-    });
+    var siteView = $('view-site');
 
-    // Also reset the horizontal photo strip
-    $('site-photos').scrollTo({
-      left: 0,
-      top: 0,
-      behavior: 'instant'
-    });
+    if (siteView){
+      siteView.scrollTop = 0;
+      siteView.scrollLeft = 0;
+    }
+
+    // Reset picture strip to the first image
+    var photos = $('site-photos');
+    if (photos){
+      photos.scrollLeft = 0;
+    }
   });
 
   // autoplay narration on arrival
-  setTimeout(function(){ playSite(); }, 250);
+  setTimeout(function(){
+    playSite();
+  }, 250);
 }
 
 function goEnd(){
