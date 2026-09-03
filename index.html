@@ -240,7 +240,7 @@ button:disabled{
   gap: 22px;
 }
 .audio-card{ text-align:center; }
-.audio-card h2{ font-size:30px; margin: 10px 0 4px; }
+.audio-card h2{ font-size:26px; margin: 10px 0 4px; }
 .audio-card .eyebrow{ display:block; margin-bottom:10px; }
 .audio-card p.transcript{ color: #3f485d; font-size:18.5px;font-weight:500; margin: 18px 0 8px; text-align:left; }
 .secret-note{
@@ -401,7 +401,7 @@ button:disabled{
 }
 
 /* ---------- site view ---------- */
-#view-site{ padding: 0 0 100px; overflow-y:auto; -webkit-overflow-scrolling: touch;
+#view-site{ padding: 0 0 100px; overflow-y:auto;   -webkit-overflow-scrolling: touch;
   scroll-behavior: auto;}
 .ticket{
   margin: 18px 16px 0;
@@ -414,7 +414,7 @@ button:disabled{
 .stop-num{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--gold); letter-spacing:0.1em; }
 
 .ticket-body{ padding: 22px 22px 6px; }
-.ticket-body h2{ font-family:'IBM Plex Mono', monospace; font-size:30px; margin-bottom:14px; }
+.ticket-body h2{ font-family:'IBM Plex Mono', monospace; font-size:26px; margin-bottom:14px;text-align: center; }
 .transcript{ color: #3f485d; font-size:18.5px; font-weight:500; }
 .transcript p{ margin: 0 0 14px; }
 .transcript p:last-child{ margin-bottom:0; }
@@ -617,7 +617,7 @@ button:disabled{
       ],
       photos:[
         {src:"images/birdpark-1.jpg", caption:"Bird Park Tiles", aspect:1.33},
-        {src:"images/birdpark-2.jpg", caption:"<em>The Large Cage, Bird Park, Santa Catalina, California</em>", aspect:1.55},
+        {src:"images/birdpark-2.jpg", caption:"<em>The Large Cage, Bird Park, Santa Catalina, California</em>", aspect:1.56},
         {src:"images/birdpark-3.jpg", caption:"Original design of the parakeets tile by Roger \"Bud\" Upton", aspect:0.65},
         {src:"images/birdpark-4.jpg", caption:"Historic parakeets tiles on display", aspect:0.74}
       ]
@@ -703,7 +703,7 @@ button:disabled{
         {src:"images/via-casino-1.jpg", caption:"Sombrero Fountain and El Encanto (left to right)", aspect:1.30},
         {src:"images/via-casino-2.jpg", caption:"Via Casion Archway and the Chimes Tower on the hill", aspect:0.76},
         {src:"images/via-casino-3.jpg", caption:"Catalina travel brochure by Otis Shepard", aspect:0.90},
-        {src:"images/via-casino-4.jpg", caption:"Catalina travel poster by Otis Shepard", aspect:1.26}
+        {src:"images/via-casino-4.jpg", caption:"Catalina travel poster by Otis Shepard", aspect:1.28}
       ]
     },
     {
@@ -720,8 +720,8 @@ button:disabled{
       photos:[
         {src:"images/tuna-1.jpg", caption:"<em>Leaping Tuna</em>", aspect:0.75},
         {src:"images/tuna-2.jpg", caption:"<em>Largest Swordfish to Date, August 3, 1917</em>", aspect:0.63},
-        {src:"images/tuna-3.jpg", caption:"<em>Submarine Gardens</em>", aspect:1.55},
-        {src:"images/tuna-4.jpg", caption:"Travel brochure featuring flying fish, 1950s.", aspect:0.57},
+        {src:"images/tuna-3.jpg", caption:"<em>Submarine Gardens</em>", aspect:1.57},
+        {src:"images/tuna-4.jpg", caption:"Travel brochure featuring flying fish, 1950s.", aspect:0.56},
         {src:"images/tuna-5.jpg", caption:"Tilepiece featuring a marlin", aspect:1}
       ]
     },
@@ -1075,8 +1075,6 @@ function playAudio(audioUrl, prefix, onEnd){
   stopAudio();
 
   var audio = new Audio(audioUrl);
-  audio.preload = 'auto';
-
   currentAudio = audio;
   activePrefix = prefix;
 
@@ -1104,17 +1102,11 @@ function playAudio(audioUrl, prefix, onEnd){
     activePrefix = null;
   });
 
-  var playPromise = audio.play();
-
-  if (playPromise !== undefined){
-    playPromise.catch(function(error){
-      console.log('Autoplay blocked:', error);
-
-      $(prefix + '-status').textContent = 'Tap Play to Begin';
-      $(prefix + '-bars').classList.remove('playing');
-      setPlayIcon(prefix, true);
-    });
-  }
+  audio.play().catch(function(){
+    $(prefix + '-status').textContent = 'Tap play to start audio';
+    $(prefix + '-bars').classList.remove('playing');
+    setPlayIcon(prefix, true);
+  });
 }
 
 function toggleAudio(audioUrl, prefix, onEnd){
@@ -1354,7 +1346,7 @@ $('btn-begin').addEventListener('click', function(){
 });
 
 $('home-play').addEventListener('click', function(){
-  toggleAudio(HOME_AUDIO, 'home', function(){
+  toggleAudio('audio/welcome.mp3', 'home', function(){
     initMap();
     goMap();
   });
