@@ -401,8 +401,11 @@ button:disabled{
 }
 
 /* ---------- site view ---------- */
-#view-site{ padding: 0 0 100px; overflow-y:auto;   -webkit-overflow-scrolling: touch;
-  scroll-behavior: auto;}
+#view-site{
+  padding: env(safe-area-inset-top) 0 100px;
+  overflow-y:auto;
+  box-sizing:border-box;
+}
 .ticket{
   margin: 18px 16px 0;
   background: #f5eed9;
@@ -481,7 +484,7 @@ button:disabled{
   <!-- HOME / INTRO -->
   <section id="view-home" class="view">
     <div class="panel audio-card">
-      <h2>  Before We Wander...</h2>
+      <h2>  Before We Wander</h2>
     <div class="audio-controls">
       <button class="play-btn" id="home-play"><svg id="home-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fdf8ec"/></svg></button>
 
@@ -946,25 +949,23 @@ button:disabled{
 function goSite(id){
   var site = siteById(id);
   if (!site) return;
-
   state.currentSiteId = id;
-
   showView('site');
 
   $('site-name').innerHTML = site.name;
   renderParagraphs('site-transcript', site.paragraphs);
   resetAudioUI('site');
-  renderPhotos(site);
-  updateExploredButton();
+renderPhotos(site);
+updateExploredButton();
 
-  // Always start the site view at the top
-  var siteView = $('view-site');
-  siteView.scrollTop = 0;
+// Always start each site at the top
+$('view-site').scrollTop = 0;
 
-  // Try to autoplay narration on arrival
-  setTimeout(function(){
-    playSite();
-  }, 250);
+// Always start the picture strip at the left
+$('site-photos').scrollLeft = 0;
+
+  // autoplay narration on arrival
+  setTimeout(function(){ playSite(); }, 250);
 }
 
 function goEnd(){
